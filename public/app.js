@@ -15,10 +15,10 @@ document.getElementById('addBurger').addEventListener('click', event => {
         <h5 class="mb-1">${document.getElementById('product').value}</h5>
         <button 
         data-name="${document.getElementById('product').value}"
-         class="purchase btn btn-success">Devour it!</button>
+         class="devour btn btn-success">Devour it!</button>
         </div>
       
-      <small>Devoured? 0</small>
+     
         `
             document.getElementById('notDevoured').append(burgerElem)
 
@@ -40,17 +40,17 @@ document.addEventListener('click', event => {
                 burgerElem.innerHTML = `
         <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">${event.target.dataset.name}</h5>
-       
+       <button class="btn btn-danger remove">Delete</button>
         </div>
       
-      <small>Devoured? Yes</small>
+      
         `
                 document.getElementById('devoured').append(burgerElem)
                 event.target.parentNode.parentNode.remove()
             })
             .catch(err => console.error(err))
     } else if (event.target.classList.contains('remove')) {
-        axios.delete(`/api/groceries/${event.target.parentNode.parentNode.id}`)
+        axios.delete(`/api/burgers/${event.target.parentNode.parentNode.id}`)
             .then(() => {
                 event.target.parentNode.parentNode.remove()
             })
