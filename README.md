@@ -6,3 +6,6 @@ This app let's you type in the name of the burgers you want to try.  Once you ha
 
 GitHub Repository:
 https://github.com/brianra2nil/burger
+
+deployed on heroku:
+https://whispering-retreat-82332.herokuapp.com/
