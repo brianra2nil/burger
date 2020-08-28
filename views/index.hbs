@@ -30,7 +30,9 @@
         <li id="{{this.id}}"class="list-group-item ">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{this.name}}</h5>
-
+          <button 
+          data-name="{{this.name}}"
+          class="devour btn btn-success">Devour it!</button>
           </div>
           <p class="mb-1"></p>
           <small>Devoured? {{ this.devoured }}</small>
