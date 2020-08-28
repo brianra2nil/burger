@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="jumbotron">
+  <h1 class="display-4">Burger App</h1>
+  <p class="lead">We love trying new burgers.  When we find something new, we type the name and click on "devour it!" to add it to our list of burgers we tried!</p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <div class="form-group">
+          <label for="product">Enter a Burger Name:</label>
+          <input type="text" class="form-control" id="product">
+        </div>
+      
+       
+        <button type="submit" id="addGrocery" class="btn btn-primary">Add Burger!</button>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <ul id="notPurchased" class="list-group">
+        <h2>New Burgers</h2>
+        {{#each burgers}}
+        {{#unless this.devoured}}
+        <li id="{{ this.id }}" class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ this.name }}</h5>
+            <button
+              data-name="{{ this.name }}"
+            
+              class="purchase btn btn-success">DEVOUR IT!</button>
+          </div>
+        
+        </li>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul id="purchased" class="list-group">
+        <h2>DEVOURED!</h2>
+        {{#each burgers}}
+        {{#if this.devoured}}
+        <li id="{{ this.id }}" class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ this.name }}</h5>
+           
+          </div>
+         
+        </li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
